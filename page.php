@@ -1,5 +1,5 @@
 <?php
-  $titre = "Autre page";
+  $titre = "zizi";
 
   include('header.inc.php');
   include('menu.inc.php');
