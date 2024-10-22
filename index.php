@@ -12,9 +12,9 @@
         <title>Titre affiché dans l’onglet</title> 
 
     </head> 
-
+    
     <body> 
-
+        Salut les zoulettes de la mort
     </body> 
 
 </html> 
