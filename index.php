@@ -3,6 +3,9 @@
 <html> 
 
     <head> 
+        <?php
+            include ('header.inc.php');
+            ?>
 
         <meta charset="utf-8"> 
 
@@ -11,7 +14,7 @@
     </head> 
 
     <body> 
-        Salut les zoulettes 
+
     </body> 
 
 </html> 
