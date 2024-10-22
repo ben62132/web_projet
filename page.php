@@ -6,6 +6,3 @@
 ?>
   <h1>La deuxième page</h1>
 
-<?php
-  include('footer.inc.php');
-?>
