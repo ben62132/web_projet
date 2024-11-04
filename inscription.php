@@ -1,9 +1,21 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <?php  
+            include ('head.inc.php');
+            ?>
+</head>
+
+<body>
 <?php
   $titre = "Inscription";
-
-  include('header.inc.php');
-  include('menu.inc.php');
 ?>
+<header class="container-fluid">
+<?php
+  include ('header.inc.php');
+  ?>
+  </header>
     <section class="inscription form">
         <h1>Création d'un compte</h1>
         <form  method="post" action="inscription.inc.php">
