@@ -2,21 +2,17 @@
 <html lang="fr">
 
 <head>
-    
-</head>
-<?php  
-            include ('header.inc.php');
+    <?php  
+            include ('head.inc.php');
             ?>
+</head>
+
 <body>
     <header class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col">
-                <img src="logopng.png" alt="Logo" class="logo">
-            </div>
-            <div class="col text-end">
-                <a href="" class="connexion">Se connecter</a>
-            </div>
-        </div>
+        
+        <?php
+            include ('header.inc.php');
+        ?>
     </header>
     
     <div class="container page-main">
