@@ -1,6 +1,9 @@
         <div class="row align-items-center">
             <div class="col">
-                <img src="logopng.png" alt="Logo" class="logo">
+                <a href=index.php >
+                    <img 
+                        src="logopng.png" alt="Logo" class="logo" />
+                </a>
             </div>
             <div class="col text-end">
                 <a href="connexion.php" class="connexion">Se connecter</a>
