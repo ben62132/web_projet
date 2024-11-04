@@ -6,6 +6,6 @@
                 </a>
             </div>
             <div class="col text-end">
-                <a href="connexion.php" class="connexion">Se connecter</a>
+                <a href="inscription.php" class="connexion">Se connecter</a>
             </div>
         </div>
