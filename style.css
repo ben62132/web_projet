@@ -1,30 +1,61 @@
-logo {
-    width: 1900px;
-    height: auto;
+body {
+    background-color: #000;
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
-/* Pour appliquer la couleur de texte à l'élément avec la classe "texte" */
-texte {
-    color: white !important;
+header {
+    background-color: #04d3f7;
+    margin: 0px;
+    padding: 0;
+    height: 100px;
 }
 
-/* Change la couleur de fond de bg-dark */
-.navbar {
-    background-color: #00d6fb !important; /* Couleur de fond */
+header.container {
+    margin: 0;
+    padding: 0;
 }
 
-.navbar .nav-link, .navbar-brand {
-    color: white !important; /* Couleur du texte */
+header img {
+    width: 100px;
+
 }
 
-connexion {
-    text-decoration: none; /* Enlève le soulignement */
-    font-size: 48px; /* Modifie la taille du texte */
-    color: white; /* Couleur du texte */
-    padding: 10px; /* Ajoute un peu d'espace autour du lien, optionnel */
+.connexion {
+    font-size: 50px;
+    /* Ajuste la taille de la police */
+    color: #de78aa;
+    /* Change la couleur (exemple en noir) */
+    text-decoration: none;
+    /* Enlève le soulignement */
+    margin-left: 10px;
+    /* Espace entre l'image et le lien */
+
 }
 
-connexion:hover {
-    color: #00d6fb; /* Change la couleur au survol, optionnel */
+/* Ajoute un effet au survol */
+.connexion:hover {
+    color: #de78aa;
+    /* Change la couleur au survol */
 }
+.page-main{
+    display : block;
+    margin : auto;
+    width : 80%;
+    margin-top: 150px;
+
+}
+h2{
+    color: #04d3f7;
+    font-size: 80px;
+}
+h1{
+    color: #04d3f7;
+}
+
+p{
+    color: #de78aa;
+}
+
 
