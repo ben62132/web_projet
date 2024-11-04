@@ -31,9 +31,9 @@
 
   // A FAIRE : Attention, ici on ne vérifie pas si l'utilisateur existe déjà
   // Il faut ajouter cette vérification !!!
-  if ($stmt = $mysqli->prepare("INSERT INTO user(nom, prenom, email, password, role) VALUES (?, ?, ?, ?, ?)")) {
+  if ($stmt = $mysqli->prepare("INSERT INTO user(utilisateur_mdpUtilisateur, utilisateur_nomUtilisateur, utilisateur_prenomUtilisateur ,utilisateur_mailUtilisateur utilisateur_membre) VALUES (?, ?, ?, ?, ?)")) {
 
-    $stmt->bind_param("ssssi", $nom, $prenom, $email, $password_crypt, $role);
+    $stmt->bind_param("ssssi", $password_crypt, $nom, $prenom, $email, $role);
     // Le message est mis dans la session, il est préférable de séparer message normal et message d'erreur.
     if($stmt->execute()) {
         // Requête exécutée correctement 

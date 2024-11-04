@@ -50,6 +50,10 @@ h2{
     color: #04d3f7;
     font-size: 80px;
 }
+h3{
+    color: #de78aa;
+    font-size: 80px;
+}
 h1{
     color: #04d3f7;
 }
@@ -106,4 +110,10 @@ footer{
 .blabla > .col {
     display: flex;
     justify-content: center;
+}
+
+.bienvenue {
+    color: #de78aa; 
+    font-size: 80px; 
+    margin: 0; 
 }

@@ -1,24 +1,33 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="fr">
 
 <head>
     <?php  
-            include ('head.inc.php');
-            ?>
+        include ('head.inc.php');
+    ?>
 </head>
 
 <body>
     <header class="container-fluid">
-        
         <?php
             include ('header.inc.php');
         ?>
     </header>
     
     <div class="container page-main">
-        <div class="text-center titre">
-            <h2>Entrainements</h2>
-        </div>
+    <div class="text-center titre">
+    <?php
+    if (isset($_SESSION["prenomUtilisateur"])) {
+        echo "<h3 class='bienvenue'>Bienvenue, " . htmlspecialchars($_SESSION["prenomUtilisateur"]) . " !</h3>";
+    }
+    ?>
+    <h2>Entrainements</h2>
+</div>
+
         
         <div class="row align-items-center mb-4">
             <div class="col-md-6">
@@ -53,7 +62,7 @@
     <footer class="container-fluid">
     <?php
         include('footer.inc.php');
-        ?>
+    ?>
     </footer>
 </body>
 

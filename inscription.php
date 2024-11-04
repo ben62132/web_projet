@@ -27,10 +27,26 @@
             <input type="email" class="form-control " id="email" name="email" placeholder="Votre email..." required>
             <label for="password" class="form-label">Mot de passe</label>
             <input type="password" class="form-control " id="mdp" name="mdp" placeholder="Votre mot de passe..." required>
-            <button type="submit" name="S'inscrire">S'inscrire</button></div>   
+            <button type="submit" name="submit_inscription">S'inscrire</button></div>   
         </form>
+        <?php
+    if (isset($_GET["error"])){
+        if ($_GET["error"] == "emptyinput"){
+          echo "<p>Vous devez remplir tous les champs<p>";
+        }
+        if ($_GET["error"] == "utilisateurexistant"){
+          echo "<p>Utilisateur déjà inscrit<p>";
+        }
+        
+    }
+    ?>
     </section>
- 
-<?php
-  include('footer.inc.php');
-?>
+  
+
+    
+    <footer class="container-fluid">
+    <?php
+        include('footer.inc.php');
+        ?>
+    </footer>
+</body>
