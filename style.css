@@ -1,8 +1,29 @@
-.logo {
-    width : 150px;
-    height : 150px;
+logo {
+    width: 1900px;
+    height: auto;
 }
 
-.background{
-    
+/* Pour appliquer la couleur de texte à l'élément avec la classe "texte" */
+texte {
+    color: white !important;
+}
+
+/* Change la couleur de fond de bg-dark */
+.navbar {
+    background-color: #00d6fb !important; /* Couleur de fond */
+}
+
+.navbar .nav-link, .navbar-brand {
+    color: white !important; /* Couleur du texte */
+}
+
+connexion {
+    text-decoration: none; /* Enlève le soulignement */
+    font-size: 48px; /* Modifie la taille du texte */
+    color: white; /* Couleur du texte */
+    padding: 10px; /* Ajoute un peu d'espace autour du lien, optionnel */
+}
+
+connexion:hover {
+    color: #00d6fb; /* Change la couleur au survol, optionnel */
 }
