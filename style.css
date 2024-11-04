@@ -36,7 +36,7 @@ header img {
 
 /* Ajoute un effet au survol */
 .connexion:hover {
-    color: #de78aa;
+    color: #000000; 
     /* Change la couleur au survol */
 }
 .page-main{

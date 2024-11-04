@@ -1,9 +1,21 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <?php  
+            include ('head.inc.php');
+            ?>
+</head>
+
+<body>
 <?php
   $titre = "Connexion";
-
-  include('header.inc.php');
-  include('menu.inc.php');
 ?>
+<header class="container-fluid">
+<?php
+  include ('header.inc.php');
+  ?>
+  </header>
   <div>
   <h1>Connexion à votre compte</h1>
   <label for="Email" class="form-label">Email</label>
