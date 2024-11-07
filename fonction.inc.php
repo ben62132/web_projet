@@ -72,3 +72,27 @@ function creerUtilisateur($conn, $password_crypted, $nom, $prenom, $email, $role
     header("location: inscription.php?error=none");
     exit();
 }
+
+function remplissageVideEntrainement($titre, $description_invite, $description_connecte, $categorie, $date, $nbr_max, $lieu_depart) {
+    return empty($titre) || empty($description_invite) || empty($description_connecte) || empty($categorie) || empty($date) || empty($nbr_max) || empty($lieu_depart);
+}
+
+function creerEntrainement($conn, $titre, $description_invite, $description_connecte, $categorie, $date, $nbr_max, $lieu_depart, $photo) {
+    $sql = "INSERT INTO entrainement(entrainement_titre, entrainement_descriptionInvite, entrainement_descriptionComplete, entrainement_categorie, entrainement_date, entrainement_nbMax, entrainement_lieuDepart, entrainement_photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: entrainement.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssssssss", $titre, $description_invite, $description_connecte, $categorie, $date, $nbr_max, $lieu_depart, $photo);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: entrainement.php?error=none");
+    exit();
+}
+
+
+

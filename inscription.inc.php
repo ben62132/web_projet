@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST["submit_inscription"])){
-    $nom =  $_POST['nom'];
+$nom =  $_POST['nom'];
 $prenom = $_POST['prenom'];
 $email =  $_POST['email'];
 $password = $_POST['mdp'];
