@@ -24,6 +24,6 @@
                     src="reebok.png" alt="Logo reebok" class="logo_reebok img-fluid" />
             </div>
             <div class="">
-                <a href="a_propos_de_nous.php" class="a_propos_de_nous">A propos de nous</a>
+                <a href="a_propos_de_nous.php" class="a_propos_de_nous apdn">A propos de nous</a>
             </div>
         </div>

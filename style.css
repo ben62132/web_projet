@@ -62,6 +62,11 @@ p{
     color: #de78aa;
 }
 
+.texte_apdn{
+    color: #de78aa;
+    font-size: 20px;
+}
+
 .form-control{
     color: #000;
 
@@ -107,6 +112,16 @@ footer{
 	height: 77px;
 }
 
+.p_ben{
+    width: 300px;
+    height: 300px;
+}
+
+.p_zach{
+    width: 300px;
+    height: 300px;
+}
+
 .blabla > .col {
     display: flex;
     justify-content: center;
@@ -116,4 +131,17 @@ footer{
     color: #de78aa; 
     font-size: 80px; 
     margin: 0; 
+}
+
+.apdn {
+    font-size: 50px;
+    /* Ajuste la taille de la police */
+    color: #222222;
+    /* Change la couleur (exemple en noir) */
+    text-decoration: none;
+    /* Enlève le soulignement */
+}
+
+.apdn:hover {
+    color: #04d3f7; 
 }
