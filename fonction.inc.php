@@ -64,14 +64,25 @@ function creerUtilisateur($conn, $password_crypted, $nom, $prenom, $email, $role
         header("location: inscription.php?error=stmtfailed");
         exit();
     }
-
+    
     mysqli_stmt_bind_param($stmt, "ssssi", $password_crypted, $nom, $prenom, $email, $role);
     mysqli_stmt_execute($stmt);
+
+    $idUtilisateur = mysqli_insert_id($conn);
+
     mysqli_stmt_close($stmt);
 
-    header("location: inscription.php?error=none");
+    
+    session_start();
+    $_SESSION["idUtilisateur"] = $idUtilisateur;
+    $_SESSION["nomUtilisateur"] = $nom;
+    $_SESSION["prenomUtilisateur"] = $prenom;
+    $_SESSION["membre"] = $role;
+
+    header("Location: index.php");
     exit();
 }
+
 
 function remplissageVideEntrainement($titre, $description_invite, $description_connecte, $categorie, $date, $nbr_max, $lieu_depart) {
     return empty($titre) || empty($description_invite) || empty($description_connecte) || empty($categorie) || empty($date) || empty($nbr_max) || empty($lieu_depart);

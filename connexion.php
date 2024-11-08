@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -29,8 +33,6 @@
     <div>
       <button type="submit" name="Se_connecter">Se Connecter</button>
       <button type="button" onclick="window.location.href='inscription.php'">S'inscrire</button>
-      <button type="button" onclick="window.location.href='entrainement.php'">Entrainement</button>
-
     </div>
   </form>
 

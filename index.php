@@ -10,7 +10,6 @@ session_start();
         include ('head.inc.php');
     ?>
 </head>
-
 <body>
     <header class="container-fluid">
         <?php
@@ -22,6 +21,8 @@ session_start();
     <div class="text-center titre">
     <?php
     if (isset($_SESSION["prenomUtilisateur"])) {
+        echo '<a href="entrainement.php" class="entrainement">Créer un entrainement</a>';
+        echo '<a href="promotionmembre.php" class="promotion">Promouvoir un membre</a>';
         echo "<h3 class='bienvenue'>Bienvenue, " . htmlspecialchars($_SESSION["prenomUtilisateur"]) . " !</h3>";
     }
     ?>
