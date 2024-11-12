@@ -38,7 +38,7 @@ session_start();
             <label for="lieu_depart" class="form-label">Lieu de depart</label>
             <input type="text" class="form-control " id="lieu_depart" name="lieu_depart" placeholder="Le lieu de départ de l'entrainement..." required>
             <label for="photo" class="form-label">Photo</label>
-            <input type="file" class="form-control " id="photo" name="photo" placeholder="La photo de l'entrainement ..." required>
+            <input type="file" class="form-control " id="photo" name="photo" placeholder="La photo de l'entrainement ..." >
             <button type="submit" name="submit_entrainement">Enregistrer</button></div>   
         </form>
         <?php
