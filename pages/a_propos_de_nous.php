@@ -1,9 +1,14 @@
+<?php
+session_start();
+?>
+
+
 <!doctype html>
 <html lang="fr">
 
 <head>
     <?php  
-            include ('head.inc.php');
+            include ('technique\head.inc.php');
             ?>
 </head>
 
@@ -11,7 +16,7 @@
     <header class="container-fluid">
         
         <?php
-            include ('header.inc.php');
+            include ('body\header.inc.php');
         ?>
     </header>
     <div class="container text-center">
@@ -58,7 +63,7 @@
     </div>
     <footer class="container-fluid">
     <?php
-        include('footer.inc.php');
+        include('body\footer.inc.php');
         ?>
     </footer>
 </body>

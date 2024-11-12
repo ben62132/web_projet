@@ -6,7 +6,7 @@ session_start();
 <html lang="fr">
 
 <head>
-    <?php include('head.inc.php'); ?>
+    <?php include('technique\head.inc.php'); ?>
 </head>
 
 <body>
@@ -14,12 +14,12 @@ session_start();
   $titre = "Connexion";
 ?>
 <header class="container-fluid">
-<?php include('header.inc.php'); ?>
+<?php include('body\header.inc.php'); ?>
 </header>
 
 <div>
   <h1>Connexion à votre compte</h1>
-  <form method="post" action="connexion.inc.php">
+  <form method="post" action="technique\connexion.inc.php">
     <div class="input-box">
       <label for="Email" class="form-label">Email</label>
       <input type="text" class="form-control" id="email" name="email" placeholder="Votre adresse esigelec" required>
@@ -32,7 +32,7 @@ session_start();
     </div>
     <div>
       <button type="submit" name="Se_connecter">Se Connecter</button>
-      <button type="button" onclick="window.location.href='inscription.php'">S'inscrire</button>
+      <button type="button" onclick="window.location.href='pages\inscription.php'">S'inscrire</button>
     </div>
   </form>
 
@@ -49,7 +49,7 @@ session_start();
 </div>
 
 <footer class="container-fluid">
-    <?php include('footer.inc.php'); ?>
+    <?php include('body\footer.inc.php'); ?>
 </footer>
 
 </body>

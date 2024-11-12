@@ -7,7 +7,7 @@ session_start();
 
 <head>
     <?php  
-            include ('head.inc.php');
+            include ('technique\head.inc.php');
             ?>
 </head>
 
@@ -17,12 +17,12 @@ session_start();
 ?>
 <header class="container-fluid">
 <?php
-  include ('header.inc.php');
+  include ('body\header.inc.php');
   ?>
   </header>
     <section class="entrainement form">
         <h1>Création d'un entrainement</h1>
-        <form  method="post" action="entrainement.inc.php">
+        <form  method="post" action="technique\entrainement.inc.php">
             <label for="titre" class="form-label">Titre</label>
             <input type="text" class="form-control " id="titre" name="titre" placeholder="Le titre de l'entrainement..." required>
             <label for="description" class="form-label">Description invité</label>
@@ -58,7 +58,7 @@ session_start();
     
     <footer class="container-fluid">
     <?php
-        include('footer.inc.php');
+        include('technique\footer.inc.php');
         ?>
     </footer>
 </body>

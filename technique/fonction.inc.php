@@ -13,7 +13,7 @@ function checkUtilisateur($conn, $email) {
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: inscription.php?error=stmtfailed");
+        header("location: pages\inscription.php?error=stmtfailed");
         exit();
     }
 
@@ -35,7 +35,7 @@ function connexionUtilisateur($conn, $password, $email) {
     $emailExistant = checkUtilisateur($conn, $email);
 
     if ($emailExistant == false) {
-        header("Location: connexion.php?error=mauvaisemail");
+        header("Location: pages\connexion.php?error=mauvaisemail");
         exit();
     }
 
@@ -43,7 +43,7 @@ function connexionUtilisateur($conn, $password, $email) {
     $verificationMdp = password_verify($password, $password_db);
 
     if (!$verificationMdp) {
-        header("Location: connexion.php?error=mauvaismotdepasse");
+        header("Location: pages\connexion.php?error=mauvaismotdepasse");
         exit();
     } else {
         session_start();
@@ -61,7 +61,7 @@ function creerUtilisateur($conn, $password_crypted, $nom, $prenom, $email, $role
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: inscription.php?error=stmtfailed");
+        header("location: pages\inscription.php?error=stmtfailed");
         exit();
     }
     
@@ -79,7 +79,7 @@ function creerUtilisateur($conn, $password_crypted, $nom, $prenom, $email, $role
     $_SESSION["prenomUtilisateur"] = $prenom;
     $_SESSION["membre"] = $role;
 
-    header("Location: index.php");
+    header("Location: pages\index.php");
     exit();
 }
 
@@ -93,7 +93,7 @@ function creerEntrainement($conn, $titre, $description_invite, $description_conn
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: entrainement.php?error=stmtfailed");
+        header("location: pages\entrainement.php?error=stmtfailed");
         exit();
     }
 
@@ -101,7 +101,7 @@ function creerEntrainement($conn, $titre, $description_invite, $description_conn
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: entrainement.php?error=none");
+    header("location: pages\entrainement.php?error=none");
     exit();
 }
 
