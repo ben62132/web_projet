@@ -22,7 +22,7 @@ session_start();
   <form method="post" action="connexion.inc.php">
     <div class="input-box">
       <label for="Membre à promouvoir" class="form-label">Membre</label>
-      <input type="text" class="form-control" id="nommembre" name="nommembre" placeholder="Le membre à promouvoir" required>
+      <input type="text" class="form-control" id="nommembre" name="nommembre" placeholder="Entrez l'adresse mail du membre à promouvoir" required>
       
     </div>
     
@@ -31,17 +31,7 @@ session_start();
 
     </div>
   </form>
-
-  <?php
-    /*if (isset($_GET["error"])) {
-        if ($_GET["error"] == "mauvaisemail") {
-          echo "<p>Mauvais email</p>";
-        }
-        if ($_GET["error"] == "mauvaismotdepasse") {
-          echo "<p>Mauvais mot de passe</p>";
-        }
-    }*/
-  ?>
+  aqa                                                                                                                                                                 
 </div>
 
 <footer class="container-fluid">

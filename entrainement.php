@@ -44,7 +44,7 @@ session_start();
         <?php
         if (isset($_GET["error"])) {
         if ($_GET["error"] == "none") {
-          echo "<p>Vous avez bien créé l'entraînement</p>";
+          echo "<ent_ajt>Vous avez bien créé l'entraînement</ent_ajt>";
         }
       } 
       ?>  
