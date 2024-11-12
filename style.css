@@ -67,6 +67,16 @@ p{
     font-size: 20px;
 }
 
+.citation_apdn{
+    color: #04d3f7;
+    font-size: 20px;
+}
+
+.nom_apdn{
+    color: #04d3f7;
+    font-size:35px;
+}
+
 .form-control{
     color: #000;
 
@@ -113,13 +123,13 @@ footer{
 }
 
 .p_ben{
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 
 .p_zach{
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 
 .blabla > .col {

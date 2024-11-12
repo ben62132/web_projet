@@ -1,4 +1,4 @@
-<div class="row align-items-center blabla">
+<div class="row align-items-center blabla footer">
             <div class="col">
                 <img 
                     src="adidas.png" alt="Logo adidas" class="logo_adidas img-fluid"/>
