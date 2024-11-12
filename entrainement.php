@@ -42,6 +42,13 @@ session_start();
             <button type="submit" name="submit_entrainement">Enregistrer</button></div>   
         </form>
         <?php
+        if (isset($_GET["error"])) {
+        if ($_GET["error"] == "none") {
+          echo "<p>Vous avez bien créé l'entraînement</p>";
+        }
+      } 
+      ?>  
+        <?php
     /*if (isset($_GET["error"])){
         if ($_GET["error"] == "emptyinput"){
           echo "<p>Vous devez remplir tous les champs<p>";

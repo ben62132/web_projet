@@ -102,6 +102,7 @@ function creerEntrainement($conn, $titre, $description_invite, $description_conn
     mysqli_stmt_close($stmt);
 
     header("location: entrainement.php?error=none");
+    
     exit();
 }
 
