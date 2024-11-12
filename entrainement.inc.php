@@ -10,16 +10,16 @@ $nbr_max = $_POST['nbr_max'];
 $lieu_depart =  $_POST['lieu_depart'];
 $photo = $_POST['photo'];
 
-require_once "technique\param.inc.php";
-require_once "technique\fonction.inc.php";
+require_once "param.inc.php";
+require_once "fonction.inc.php";
 
 if (remplissageVideEntrainement($titre, $description_invite, $description_connecte, $categorie, $date, $nbr_max, $lieu_depart) !== false) {
-    header("Location: pages\entrainement.php?error=emptyinput");
+    header("Location: entrainement.php?error=emptyinput");
     exit();
 }
 
 if (!filter_var($nbr_max, FILTER_VALIDATE_INT, ["options" => ["min_range" => 1]])) {
-    header("Location: pages\entrainement.php?error=invalidnbrmax");
+    header("Location: entrainement.php?error=invalidnbrmax");
     exit();
 }
 
@@ -28,5 +28,5 @@ creerEntrainement($conn,$titre, $description_invite, $description_connecte, $cat
 }
 else {
 
-    header("Location: pages\inscription.php");
+    header("Location: inscription.php");
 }

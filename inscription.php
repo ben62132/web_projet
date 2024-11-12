@@ -3,7 +3,7 @@
 
 <head>
     <?php  
-            include ('technique\head.inc.php');
+            include ('head.inc.php');
             ?>
 </head>
 
@@ -13,7 +13,7 @@
 ?>
 <header class="container-fluid">
 <?php
-  include ('body\header.inc.php');
+  include ('header.inc.php');
   ?>
   </header>
     <section class="inscription form">
@@ -46,7 +46,7 @@
     
     <footer class="container-fluid">
     <?php
-        include('body\footer.inc.php');
+        include('footer.inc.php');
         ?>
     </footer>
 </body>

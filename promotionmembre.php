@@ -6,7 +6,7 @@ session_start();
 <html lang="fr">
 
 <head>
-    <?php include('technique\head.inc.php'); ?>
+    <?php include('head.inc.php'); ?>
 </head>
 
 <body>
@@ -14,12 +14,12 @@ session_start();
   $titre = "Promotion";
 ?>
 <header class="container-fluid">
-<?php include('body\header.inc.php'); ?>
+<?php include('header.inc.php'); ?>
 </header>
 
 <div>
   <h1>Promouvoir un membre</h1>
-  <form method="post" action="technique\connexion.inc.php">
+  <form method="post" action="connexion.inc.php">
     <div class="input-box">
       <label for="Membre à promouvoir" class="form-label">Membre</label>
       <input type="text" class="form-control" id="nommembre" name="nommembre" placeholder="Le membre à promouvoir" required>
@@ -45,7 +45,7 @@ session_start();
 </div>
 
 <footer class="container-fluid">
-    <?php include('body\footer.inc.php'); ?>
+    <?php include('footer.inc.php'); ?>
 </footer>
 
 </body>

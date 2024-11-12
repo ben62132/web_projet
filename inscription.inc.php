@@ -9,23 +9,23 @@ $role = 0;
 $password_crypted = password_hash($password, PASSWORD_BCRYPT);
 
 
-require_once "technique\param.inc.php";
-require_once "technique\fonction.inc.php";
+require_once "param.inc.php";
+require_once "fonction.inc.php";
 
 if (remplissageVideInscription($password_crypted,$nom,$prenom,$email,$role) !==false){
-    header("Location: pages\inscription.php?error=emptyinput");
+    header("Location: inscription.php?error=emptyinput");
     exit();
 }
 
 if (checkUtilisateur($conn,$email) !==false){
-    header("Location: pages\inscription.php?error=utilisateurexistant");
+    header("Location: inscription.php?error=utilisateurexistant");
 }
 creerUtilisateur($conn,$password_crypted,$nom,$prenom,$email,$role);
 
 }
 else {
 
-    header("Location: pages\inscription.php");
+    header("Location: inscription.php");
 }
 
 

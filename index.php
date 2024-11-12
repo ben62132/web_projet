@@ -7,13 +7,13 @@ session_start();
 
 <head>
     <?php  
-        include ('technique\head.inc.php');
+        include ('head.inc.php');
     ?>
 </head>
 <body>
     <header class="container-fluid">
         <?php
-            include ('body\header.inc.php');
+            include ('header.inc.php');
         ?>
     </header>
     
@@ -21,8 +21,8 @@ session_start();
     <div class="text-center titre">
     <?php
     if (isset($_SESSION["prenomUtilisateur"])) {
-        echo '<a href="pages\entrainement.php" class="entrainement">Créer un entrainement</a>';
-        echo '<a href="pages\promotionmembre.php" class="promotion">Promouvoir un membre</a>';
+        echo '<a href="entrainement.php" class="entrainement">Créer un entrainement</a>';
+        echo '<a href="promotionmembre.php" class="promotion">Promouvoir un membre</a>';
         echo "<h3 class='bienvenue'>Bienvenue, " . htmlspecialchars($_SESSION["prenomUtilisateur"]) . " !</h3>";
     }
     ?>
@@ -32,7 +32,7 @@ session_start();
         
         <div class="row align-items-center mb-4">
             <div class="col-md-6">
-                <img src="imports\entrainement.jpg" class="img-fluid" alt="Entrainement">
+                <img src="entrainement.jpg" class="img-fluid" alt="Entrainement">
             </div>
             <div class="col-md-6">
                 <h1>Titre</h1>
@@ -45,7 +45,7 @@ session_start();
         
         <div class="row align-items-center mb-4">
             <div class="col-md-6 order-md-2">
-                <img src="imports\entrainement2.jpg" class="img-fluid" alt="Entrainement 2">
+                <img src="entrainement2.jpg" class="img-fluid" alt="Entrainement 2">
             </div>
             <div class="col-md-6">
                 <h1>Titre</h1>
@@ -62,7 +62,7 @@ session_start();
         crossorigin="anonymous"></script>
     <footer class="container-fluid">
     <?php
-        include('body\footer.inc.php');
+        include('footer.inc.php');
     ?>
     </footer>
 </body>

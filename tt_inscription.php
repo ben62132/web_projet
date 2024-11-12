@@ -22,7 +22,7 @@
   $password_crypt = password_hash($password, PASSWORD_BCRYPT, $options);
 
   // Connexion :
-  require_once("technique\param.inc.php");
+  require_once("param.inc.php");
   $mysqli = new mysqli($host, $login, $passwd, $dbname);
   if ($mysqli->connect_error) {
       die('Erreur de connexion (' . $mysqli->connect_errno . ') '
@@ -45,7 +45,7 @@
     }
   }
   // Redirection vers la page d'accueil par exemple :
-  header('Location: pages\index.php');
+  header('Location: index.php');
 
 
 ?>
