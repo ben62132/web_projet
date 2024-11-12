@@ -39,6 +39,28 @@ header img {
     color: #222222; 
     /* Change la couleur au survol */
 }
+
+.entrainement {
+    color: #04d3f7; 
+    font-size: 80px; 
+    margin: 0;
+    text-decoration: none;
+}
+.entrainement:hover {
+    color: #de78aa; 
+    /* Change la couleur au survol */
+}
+.promotion {
+    color: #04d3f7; 
+    font-size: 80px; 
+    margin: 0;
+    text-decoration: none;
+}
+.promotion:hover {
+    color: #de78aa; 
+    /* Change la couleur au survol */
+}
+
 .page-main{
     display : block;
     margin : auto;
