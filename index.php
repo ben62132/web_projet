@@ -1,5 +1,8 @@
 <?php
 session_start();
+include('entrainementaffichage.inc.php');
+//var_dump($entrainements);
+//exit();
 ?>
 
 <!doctype html>
@@ -28,33 +31,59 @@ session_start();
     ?>
     <h2>Entrainements</h2>
 </div>
+<?php foreach ($entrainements as $index => $entrainement): ?>
+        <div class="row align-items-center mb-4">
+            <?php if ($index % 2 == 0): ?>
+                <div class="col-md-6">
+                <img src="entrainement.jpg" alt="Entrainement" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                    <h1><?= htmlspecialchars($entrainement['entrainement_titre']) ?></h1>
+                    <?php if (isset($_SESSION["idUtilisateur"])): ?>
+                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionComplete']) ?></p>
+                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
+                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_date']) ?></p>
+                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
+                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
 
-        
-        <div class="row align-items-center mb-4">
-            <div class="col-md-6">
-                <img src="entrainement.jpg" class="img-fluid" alt="Entrainement">
-            </div>
-            <div class="col-md-6">
-                <h1>Titre</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestiae doloribus iste eligendi
-                    neque vitae! Sint nihil sequi saepe magni neque id tempore sed? Qui sed esse cumque cupiditate
-                    perspiciatis.
-                </p>
-            </div>
+                        <?php if ($isRegistered): ?>
+                            <a href="inscription.php?entrainementId=<?= $entrainement['idEntrainement'] ?>" class="btn btn-danger">Se désinscrire</a>
+                        <?php elseif ($remainingSpots > 0): ?>
+                            <a href="inscription.php?entrainementId=<?= $entrainement['idEntrainement'] ?>" class="btn btn-success">S'inscrire</a>
+                        <?php else: ?>
+                            <span class="badge bg-secondary">Aucune place disponible</span>
+                        <?php endif; ?>
+
+                        
+                    <?php else: ?>
+                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionInvite']) ?></p>
+                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
+                    <?php endif; ?>
+
+                </div>
+            <?php else: ?>
+                <div class="col-md-6 order-md-2">
+                <img src="entrainement2.jpg" alt="Entrainement 2" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                <h1><?= htmlspecialchars($entrainement['entrainement_titre']) ?></h1>
+                <?php if (isset($_SESSION["idUtilisateur"])): ?>
+                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionComplete']) ?></p>
+                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
+                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_date']) ?></p>
+                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
+                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
+                <?php else: ?>
+                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionInvite']) ?></p>
+                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
+                <?php endif; ?>
+
+                </div>
+            <?php endif; ?>
         </div>
+    <?php endforeach; ?>
         
-        <div class="row align-items-center mb-4">
-            <div class="col-md-6 order-md-2">
-                <img src="entrainement2.jpg" class="img-fluid" alt="Entrainement 2">
-            </div>
-            <div class="col-md-6">
-                <h1>Titre</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestiae doloribus iste eligendi
-                    neque vitae! Sint nihil sequi saepe magni neque id tempore sed? Qui sed esse cumque cupiditate
-                    perspiciatis.
-                </p>
-            </div>
-        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
