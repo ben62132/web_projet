@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('connexion.php');  // Assure-toi d'avoir la connexion à la base de données
+require_once "param.inc.php";
 
 // Vérification si l'utilisateur est connecté
 if (!isset($_SESSION["idUtilisateur"])) {
@@ -12,11 +12,9 @@ if (!isset($_SESSION["idUtilisateur"])) {
 $userId = $_SESSION["idUtilisateur"];
 $entrainementId = $_GET['entrainementId']; // Id de l'entrainement depuis l'URL (ou d'un autre moyen)
 
-// Vérification si l'utilisateur est déjà inscrit à l'entraînement
-$query = "SELECT COUNT(*) FROM participe WHERE utilisateur_idUtilisateur = ? AND entrainement_idEntrainement = ?";
-$stmt = $pdo->prepare($query);
-$stmt->execute([$userId, $entrainementId]);
-$isRegistered = $stmt->fetchColumn() > 0;
+
+
+
 
 // Vérification s'il y a de la place pour s'inscrire
 $queryMax = "SELECT entrainement_nbMax, COUNT(*) as currentParticipants FROM participe WHERE entrainement_idEntrainement = ?";

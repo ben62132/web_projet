@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('entrainementaffichage.inc.php');
+include('fonction.inc.php');
 //var_dump($entrainements);
 //exit();
 ?>
@@ -45,16 +46,18 @@ include('entrainementaffichage.inc.php');
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_date']) ?></p>
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
-
-                        <?php if ($isRegistered): ?>
-                            <a href="inscription.php?entrainementId=<?= $entrainement['idEntrainement'] ?>" class="btn btn-danger">Se désinscrire</a>
-                        <?php elseif ($remainingSpots > 0): ?>
-                            <a href="inscription.php?entrainementId=<?= $entrainement['idEntrainement'] ?>" class="btn btn-success">S'inscrire</a>
+                        
+                        <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
+                            <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
                         <?php else: ?>
-                            <span class="badge bg-secondary">Aucune place disponible</span>
+                            <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
+                                <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                            <?php else: ?>
+                                <p class="texte-rose"><?= "Pas de place disponible" ?></p>
+                            <?php endif; ?>
                         <?php endif; ?>
 
-                        
+
                     <?php else: ?>
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionInvite']) ?></p>
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
@@ -73,6 +76,20 @@ include('entrainementaffichage.inc.php');
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_date']) ?></p>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
+
+                    <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
+                        <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
+                    <?php else: ?>
+                        <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
+                            <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                        <?php else: ?>
+                            <p class="texte-rose"><?= "Pas de place disponible" ?></p>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    
+                    
+                    
+
                 <?php else: ?>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionInvite']) ?></p>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
