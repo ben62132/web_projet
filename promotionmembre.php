@@ -1,5 +1,8 @@
 <?php
 session_start();
+include('promotionmembre.inc.php');
+//var_dump($entrainements);
+//exit();
 ?>
 
 <!doctype html>
@@ -19,21 +22,14 @@ session_start();
 
 <div>
   <h1>Promouvoir un membre</h1>
-  <form method="post" action="connexion.inc.php">
-    <div class="input-box">
-      <label for="Membre à promouvoir" class="form-label">Membre</label>
-      <input type="text" class="form-control" id="nommembre" name="nommembre" placeholder="Entrez l'adresse mail du membre à promouvoir" required>
-      
-    </div>
-    
-    <div>
-      <button type="submit" name="Promouvoir">Promouvoir</button>
-
-    </div>
-  </form>
-  aqa                                                                                                                                                                 
+  <?php foreach ($utilisateurs as $index => $utilisateurs): ?>
+        <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <h1><?= htmlspecialchars($utilisateurs['utilisateur_nomUtilisateur']) ?></h1>
+                </div>
+                                                                                                                                       
+        </div>
 </div>
-
 <footer class="container-fluid">
     <?php include('footer.inc.php'); ?>
 </footer>
