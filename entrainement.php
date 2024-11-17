@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if (!(isset($_SESSION["membre"]) && $_SESSION["membre"] == 1)) {
+  echo "<p class='alert alert-danger'>Page inaccessible. Vous devez être membre pour accéder à cette page.</p>";
+  
+  header("Location: index.php?error=unaccessible");
+  exit(); 
+}
 ?>
 
 <!doctype html>

@@ -17,9 +17,12 @@ if (remplissageVideInscription($password_crypted,$nom,$prenom,$email,$role) !==f
     exit();
 }
 
-if (checkUtilisateur($conn,$email) !==false){
+if (checkUtilisateur($conn, $email) !== false) {
+    // L'email existe déjà, rediriger vers inscription avec un message d'erreur
     header("Location: inscription.php?error=utilisateurexistant");
+    exit();
 }
+
 creerUtilisateur($conn,$password_crypted,$nom,$prenom,$email,$role);
 
 }

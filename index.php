@@ -23,6 +23,19 @@ include('fonction.inc.php');
     
     <div class="container page-main">
     <div class="text-center titre">
+    <?php if (isset($_GET["error"]) && $_GET["error"] == "none_well_deconnected") {
+    echo "<p class='alert alert-success'>Vous vous êtes déconnecté avec succès.</p>";
+}
+?>
+    <?php if (isset($_GET["error"]) && $_GET["error"] == "none_well_connected") {
+        echo "<p class='alert alert-success'>Vous vous êtes connecté avec succès.</p>";
+    }
+    ?>
+<?php if (isset($_GET["error"]) && $_GET["error"] == "unaccessible") {
+        echo "<p class='alert alert-success'>Page inaccessible. Vous devez être membre pour accéder à cette page.</p>";
+    }
+    ?>
+
     <?php
        if (isset($_SESSION["prenomUtilisateur"])) {
         echo "<h3 class='bienvenue'>Bienvenue, " . htmlspecialchars($_SESSION["prenomUtilisateur"]) . " !</h3>";
@@ -50,27 +63,30 @@ include('fonction.inc.php');
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
                         
-                        <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
-                            <form method="post" action="desinscriptionentrainement.inc.php">
-                            <!-- Ajout de l'ID de l'entraînement comme paramètre -->
-                            <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
-                            <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
-                            <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
-                        </form>
+                        <?php if ($_SESSION["membre"] == 1): ?>
+                            <form method="post" action="annulerentrainement.inc.php">
+                                <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                                <button type="submit" name="submit_annulationentrainement">Annuler</button>
+                            </form>
                         <?php else: ?>
-                            <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
-                                <form method="post" action="inscriptionentrainement.inc.php">
-                                    <!-- Ajout de l'ID de l'entraînement comme paramètre -->
+                            <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
+                                <form method="post" action="desinscriptionentrainement.inc.php">
                                     <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
                                     <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
-                                    <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                                    <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
                                 </form>
                             <?php else: ?>
-                                <p class="texte-rose"><?= "Pas de place disponible" ?></p>
+                                <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
+                                    <form method="post" action="inscriptionentrainement.inc.php">
+                                        <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                                        <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
+                                        <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                                    </form>
+                                <?php else: ?>
+                                    <p class="texte-rose"><?= "Pas de place disponible" ?></p>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         <?php endif; ?>
-
-                    <?php endif; ?>
-
 
                     <?php else: ?>
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionInvite']) ?></p>
@@ -91,29 +107,31 @@ include('fonction.inc.php');
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
 
-                    <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
-                        <form method="post" action="desinscriptionentrainement.inc.php">
-                            <!-- Ajout de l'ID de l'entraînement comme paramètre -->
+                    <?php if ($_SESSION["membre"] == 1): ?>
+                        <form method="post" action="annulerentrainement.inc.php">
                             <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
-                            <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
-                            <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
+                            <button type="submit" name="submit_annulationentrainement">Annuler</button>
                         </form>
                     <?php else: ?>
-                        <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
-                            <form method="post" action="inscriptionentrainement.inc.php">
-                                <!-- Ajout de l'ID de l'entraînement comme paramètre -->
+                        <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
+                            <form method="post" action="desinscriptionentrainement.inc.php">
                                 <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
                                 <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
-                                <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                                <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
                             </form>
                         <?php else: ?>
-                            <p class="texte-rose"><?= "Pas de place disponible" ?></p>
+                            <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
+                                <form method="post" action="inscriptionentrainement.inc.php">
+                                    <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                                    <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
+                                    <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                                </form>
+                            <?php else: ?>
+                                <p class="texte-rose"><?= "Pas de place disponible" ?></p>
+                            <?php endif; ?>
                         <?php endif; ?>
                     <?php endif; ?>
                     
-                    
-                    
-
                 <?php else: ?>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionInvite']) ?></p>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>

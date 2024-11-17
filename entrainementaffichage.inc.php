@@ -1,7 +1,7 @@
 <?php 
 include('param.inc.php'); // Inclure la connexion à la base de données
 
-$sql = "SELECT * FROM entrainement ORDER BY entrainement_date ASC"; // Requête pour récupérer les entraînements
+$sql = "SELECT * FROM entrainement WHERE entrainement_annulation = 0 ORDER BY entrainement_date ASC"; // Requête pour récupérer les entraînements
 $result = mysqli_query($conn, $sql); // Exécuter la requête
 
 if (!$result) {

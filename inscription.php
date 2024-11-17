@@ -37,6 +37,9 @@
         if ($_GET["error"] == "utilisateurexistant"){
           echo "<p>Utilisateur déjà inscrit<p>";
         }
+        if ($_GET["error"] == "none"){
+          echo "<p>Utilisateur créé<p>";
+        }
         
     }
     ?>

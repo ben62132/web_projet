@@ -1,9 +1,16 @@
 <?php
 session_start();
 include('promotionmembre.inc.php');
-//var_dump($utilisateurs);
-//exit();
+
+if (!(isset($_SESSION["membre"]) && $_SESSION["membre"] == 1)) {
+  echo "<p class='alert alert-danger'>Page inaccessible. Vous devez être membre pour accéder à cette page.</p>";
+  
+  header("Location: index.php?error=unaccessible");
+  exit(); 
+}
 ?>
+
+
 
 <!doctype html>
 <html lang="fr">
