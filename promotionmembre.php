@@ -23,12 +23,17 @@ include('promotionmembre.inc.php');
 <div>
   <h1>Promouvoir un membre</h1>
   <?php foreach ($utilisateurs as $utilisateur): ?>
-        <div class="row align-items-center mb-4">
-                <div class="col-md-6">
-                    <h1><?= htmlspecialchars($utilisateurs['utilisateur_nomUtilisateur']) ?></h1>
-                </div>
-                                                                                                                                       
+        <div class="text-center">
+                  <div class="aff_membre">
+                    <?= htmlspecialchars($utilisateur['utilisateur_prenomUtilisateur']) ?>
+                    <?= htmlspecialchars($utilisateur['utilisateur_nomUtilisateur']) ?>
+                    if
+                    <button class="bouton_promotion_membre" type="submit" name="Promouvoir_m">Promouvoir</button>
+                    </div>
+                  </div>                                                                                                                                       
         </div>
+  <?php endforeach; ?>
+
 </div>
 <footer class="container-fluid">
     <?php include('footer.inc.php'); ?>

@@ -183,3 +183,21 @@ footer{
 .ent_ajt{
     color: #04d3f7;
 }
+
+.aff_membre{
+    font-size: 50px;
+    /* Ajuste la taille de la police */
+    color: #de78aa;
+    margin-left: 10px;
+    /* Espace entre l'image et le lien */
+}
+
+.bouton_promotion_membre {
+    background-color: #04d3f7;
+    color: #000000;
+    font-size: 35px;
+}
+
+.bouton_promotion_membre:hover{
+    background-color: #de78aa;
+}
