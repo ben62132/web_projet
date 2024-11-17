@@ -27,13 +27,17 @@ include('promotionmembre.inc.php');
                   <div class="aff_membre">
                     <?= htmlspecialchars($utilisateur['utilisateur_prenomUtilisateur']) ?>
                     <?= htmlspecialchars($utilisateur['utilisateur_nomUtilisateur']) ?>
-                    if
-                    <button class="bouton_promotion_membre" type="submit" name="Promouvoir_m">Promouvoir</button>
-                    </div>
+                    <?php if($utilisateur['utilisateur_membre']==0): ?>
+                    <form action="click_btn_promotion_membre.inc.php" method="post">
+                      <input type="hidden" name="id" value="1">
+                      <button class="bouton_promotion_membre" type="submit" name="Promouvoir_m">Promouvoir</button>
+                    </form>
+                    <?php else: ?>
+                      <button class="bouton_membre_promu" type="submit" name="Promouvoir_m">Promu</button>
+                    <?php endif; ?>
                   </div>                                                                                                                                       
         </div>
   <?php endforeach; ?>
-
 </div>
 <footer class="container-fluid">
     <?php include('footer.inc.php'); ?>
