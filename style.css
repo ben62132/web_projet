@@ -185,7 +185,7 @@ footer{
 }
 
 .aff_membre{
-    font-size: 50px;
+    font-size: 40px;
     /* Ajuste la taille de la police */
     color: #de78aa;
     margin-left: 10px;
@@ -204,5 +204,5 @@ footer{
 
 .bouton_membre_promu{
     background-color: #777777;
-    font-size: 25px;
+    font-size: 35px;
 }

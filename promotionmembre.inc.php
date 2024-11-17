@@ -1,7 +1,7 @@
 <?php 
 include('param.inc.php'); // Inclure la connexion à la base de données
 
-$sql = "SELECT * FROM utilisateur"; // Requête pour récupérer les entraînements
+$sql = "SELECT * FROM utilisateur ORDER BY utilisateur_nomUtilisateur ASC"; // Requête pour récupérer les entraînements
 $result = mysqli_query($conn, $sql); // Exécuter la requête
 
 if (!$result) {

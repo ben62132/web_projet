@@ -29,11 +29,11 @@ include('promotionmembre.inc.php');
                     <?= htmlspecialchars($utilisateur['utilisateur_nomUtilisateur']) ?>
                     <?php if($utilisateur['utilisateur_membre']==0): ?>
                     <form action="click_btn_promotion_membre.inc.php" method="post">
-                      <input type="hidden" name="id" value="1">
+                      <input type="hidden" name="idUtilisateur" value="<?= htmlspecialchars($utilisateur['utilisateur_idUtilisateur']) ?>">
                       <button class="bouton_promotion_membre" type="submit" name="Promouvoir_m">Promouvoir</button>
                     </form>
                     <?php else: ?>
-                      <button class="bouton_membre_promu" type="submit" name="Promouvoir_m">Promu</button>
+                      <button class="bouton_membre_promu" type="submit" name="Promouvoir_m">Membre</button>
                     <?php endif; ?>
                   </div>                                                                                                                                       
         </div>

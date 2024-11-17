@@ -1,15 +1,16 @@
 <?php 
-include('param.inc.php'); // Inclure la connexion à la base de données
+include('promotionmembre.inc.php'); // Inclure la connexion à la base de données
 
-$userId=$_GET['utilisateur_idUtilisateur']
-$sql = "UPDATE utilisateur SET utilisateur_membre = 1 WHERE utilisateur_idUtiilisateur = ?";
+$idUtilisateur=$_POST['idUtilisateur'];
+$sql = "UPDATE utilisateur SET utilisateur_membre = 1 WHERE utilisateur_idUtilisateur = ?";
 $stmt = mysqli_stmt_init($conn);
-mysqli_stmt_bind_param($stmt,"i",$userId)
-
-$result = mysqli_query($conn, $sql); // Exécuter la requête
-
-if (!$result) {
-    die("Erreur dans la requête : " . mysqli_error($conn)); // Gestion des erreurs
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: promotionmembre.php?error=stmtfailed");
+    exit();
 }
-
+mysqli_stmt_bind_param($stmt,"i",$idUtilisateur);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+header("Location: promotionmembre.php");
+exit();
 ?>
