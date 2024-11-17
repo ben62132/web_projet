@@ -31,12 +31,12 @@ session_start();
                     src="messi.jpg" alt="Photos Benjamin" class="p_ben col img-fluid" />
             </div>
             <div class="col-4 texte_apdn"> 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestiae doloribus iste eligendi
-                neque vitae! Sint nihil sequi saepe magni neque id tempore sed? Qui sed esse cumque cupiditate
-                perspiciatis.
+                Joueur du FC Barcelone depuis mes 16 ans, je suis passionnée de sport et très amoureux de la discipline appelé "running". 
+                Courir fait partie de moi-même, et je suis très heureux de vous partager cette passion en vous mettant à disposition ce site 
+                permettant de trouver des amoureux, tout comme moi, et de partager de très bons moments !
             </div>
             <div class="col-4 citation_apdn">
-                CITATION
+                "Courir après ses rêves n'est pas un sport, c'est un devoir"
             </div>
         </div>
     </div>
