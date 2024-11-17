@@ -28,7 +28,7 @@ session_start();
         <div class="row align-items-center">
         <div class="col-4">
                 <img 
-                    src="photo_quelconque.png" alt="Photos Benjamin" class="p_ben col img-fluid" />
+                    src="messi.jpg" alt="Photos Benjamin" class="p_ben col img-fluid" />
             </div>
             <div class="col-4 texte_apdn"> 
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestiae doloribus iste eligendi
@@ -49,7 +49,7 @@ session_start();
         <div class="row align-items-center">
             <div class="col-4">
                 <img 
-                    src="photo_quelconque.png" alt="Photos Benjamin" class="p_ben col img-fluid" />
+                    src="photo_quelconque.png" alt="Photos Zacharie" class="p_zach col img-fluid" />
             </div>
             <div class="col-4 texte_apdn"> 
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestiae doloribus iste eligendi
