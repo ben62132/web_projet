@@ -51,11 +51,16 @@ include('fonction.inc.php');
                             <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
                         <?php else: ?>
                             <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
-                                <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                                <form method="post" action="inscriptionentrainement.inc.php">
+                                    <!-- Ajout de l'ID de l'entraînement comme paramètre -->
+                                    <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                                    <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                                </form>
                             <?php else: ?>
                                 <p class="texte-rose"><?= "Pas de place disponible" ?></p>
-                            <?php endif; ?>
                         <?php endif; ?>
+
+                    <?php endif; ?>
 
 
                     <?php else: ?>
