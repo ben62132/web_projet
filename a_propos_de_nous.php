@@ -49,7 +49,7 @@ session_start();
         <div class="row align-items-center">
             <div class="col-4">
                 <img 
-                    src="photo_quelconque.png" alt="Photos Zacharie" class="p_zach col img-fluid" />
+                    src="zach.jpg" alt="Photos Zacharie" class="p_zach col img-fluid" />
             </div>
             <div class="col-4 texte_apdn"> 
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestiae doloribus iste eligendi
@@ -57,7 +57,7 @@ session_start();
                 perspiciatis.
             </div>
             <div class="col-4 citation_apdn">
-                CITATION
+                C’est plus facile de descendre une colline que de la monter, mais la vue est beaucoup mieux au sommet. 
             </div>
         </div>
     </div>
