@@ -107,4 +107,49 @@ function creerEntrainement($conn, $titre, $description_invite, $description_conn
 }
 
 
+function estInscrit($conn, $userId, $entrainementId){
+    $sql = "SELECT COUNT(*) FROM participe WHERE utilisateur_idUtilisateur = ? AND entrainement_idEntrainement = ?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: index.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $userId, $entrainementId);
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    $estInscrit = mysqli_fetch_assoc($resultData);
+
+    
+    return $estInscrit['COUNT(*)'] > 0;
+    
+    mysqli_stmt_close($stmt); 
+}
+
+function inscriptionPossible($conn, $nombreMax, $entrainementId) {
+    $sql = "SELECT COUNT(*) FROM participe WHERE entrainement_idEntrainement = ?";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: index.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $entrainementId);
+    mysqli_stmt_execute($stmt);
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    $nombreInscrits = mysqli_fetch_assoc($resultData)['COUNT(*)'];
+
+    if ($nombreInscrits < $nombreMax) {
+        return true; 
+    } else {
+        return false;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
 
