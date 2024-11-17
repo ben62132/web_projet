@@ -24,13 +24,14 @@ include('fonction.inc.php');
     <div class="container page-main">
     <div class="text-center titre">
     <?php
+       if (isset($_SESSION["prenomUtilisateur"])) {
+        echo "<h3 class='bienvenue'>Bienvenue, " . htmlspecialchars($_SESSION["prenomUtilisateur"]) . " !</h3>";
+    }
     if (isset($_SESSION["membre"]) && $_SESSION["membre"] == 1){
         echo '<a href="entrainement.php" class="entrainement">Créer un entrainement</a>';
         echo '<a href="promotionmembre.php" class="promotion">Promouvoir un membre</a>';
     }
-    if (isset($_SESSION["prenomUtilisateur"])) {
-        echo "<h3 class='bienvenue'>Bienvenue, " . htmlspecialchars($_SESSION["prenomUtilisateur"]) . " !</h3>";
-    }
+ 
     ?>
     <h2>Entrainements</h2>
 </div>
