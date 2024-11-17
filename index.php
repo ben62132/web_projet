@@ -24,9 +24,11 @@ include('fonction.inc.php');
     <div class="container page-main">
     <div class="text-center titre">
     <?php
-    if (isset($_SESSION["prenomUtilisateur"])) {
+    if (isset($_SESSION["membre"]) && $_SESSION["membre"] == 1){
         echo '<a href="entrainement.php" class="entrainement">Créer un entrainement</a>';
         echo '<a href="promotionmembre.php" class="promotion">Promouvoir un membre</a>';
+    }
+    if (isset($_SESSION["prenomUtilisateur"])) {
         echo "<h3 class='bienvenue'>Bienvenue, " . htmlspecialchars($_SESSION["prenomUtilisateur"]) . " !</h3>";
     }
     ?>
@@ -48,12 +50,18 @@ include('fonction.inc.php');
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
                         
                         <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
+                            <form method="post" action="desinscriptionentrainement.inc.php">
+                            <!-- Ajout de l'ID de l'entraînement comme paramètre -->
+                            <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                            <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
                             <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
+                        </form>
                         <?php else: ?>
                             <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
                                 <form method="post" action="inscriptionentrainement.inc.php">
                                     <!-- Ajout de l'ID de l'entraînement comme paramètre -->
                                     <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                                    <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
                                     <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
                                 </form>
                             <?php else: ?>
@@ -83,10 +91,20 @@ include('fonction.inc.php');
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
 
                     <?php if (estInscrit($conn, $_SESSION['idUtilisateur'], $entrainement['entrainement_idEntrainement'])): ?>
-                        <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
+                        <form method="post" action="desinscriptionentrainement.inc.php">
+                            <!-- Ajout de l'ID de l'entraînement comme paramètre -->
+                            <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                            <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
+                            <button type="submit" name="submit_desinscriptionentrainement">Se désinscrire</button>
+                        </form>
                     <?php else: ?>
                         <?php if (inscriptionPossible($conn, $entrainement['entrainement_nbMax'], $entrainement['entrainement_idEntrainement'])): ?>
-                            <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                            <form method="post" action="inscriptionentrainement.inc.php">
+                                <!-- Ajout de l'ID de l'entraînement comme paramètre -->
+                                <input type="hidden" name="entrainementId" value="<?= htmlspecialchars($entrainement['entrainement_idEntrainement']) ?>">
+                                <input type="hidden" name="entrainementnbMax" value="<?= htmlspecialchars($entrainement['entrainement_nbMax']) ?>">
+                                <button type="submit" name="submit_inscriptionentrainement">S'inscrire</button>
+                            </form>
                         <?php else: ?>
                             <p class="texte-rose"><?= "Pas de place disponible" ?></p>
                         <?php endif; ?>
