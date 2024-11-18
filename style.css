@@ -51,13 +51,13 @@ header img {
     /* Change la couleur au survol */
 }
 .promotion {
-    color: #04d3f7; 
+    color: #de78aa; 
     font-size: 80px; 
     margin: 0;
     text-decoration: none;
 }
 .promotion:hover {
-    color: #de78aa; 
+    color: #04d3f7; 
     /* Change la couleur au survol */
 }
 
