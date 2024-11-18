@@ -13,7 +13,7 @@ function checkUtilisateur($conn, $email) {
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: pages\inscription.php?error=stmtfailed");
+        header("location: inscription.php?error=stmtfailed");
         exit();
     }
 
@@ -51,7 +51,7 @@ function connexionUtilisateur($conn, $password, $email) {
         $_SESSION["nomUtilisateur"] = $emailExistant["utilisateur_nomUtilisateur"];
         $_SESSION["prenomUtilisateur"] = $emailExistant["utilisateur_prenomUtilisateur"];
         $_SESSION["membre"] = $emailExistant["utilisateur_membre"];
-        header("Location: index.php");
+        header("Location: index.php?error=none_well_connected");
         exit();
     }
 }
@@ -79,7 +79,7 @@ function creerUtilisateur($conn, $password_crypted, $nom, $prenom, $email, $role
     $_SESSION["prenomUtilisateur"] = $prenom;
     $_SESSION["membre"] = $role;
 
-    header("Location: index.php");
+    header("Location: index.php?error=inscription");
     exit();
 }
 

@@ -52,12 +52,10 @@ session_start();
                     src="zach.jpg" alt="Photos Zacharie" class="p_zach col img-fluid" />
             </div>
             <div class="col-4 texte_apdn"> 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestiae doloribus iste eligendi
-                neque vitae! Sint nihil sequi saepe magni neque id tempore sed? Qui sed esse cumque cupiditate
-                perspiciatis.
+            Sudiste qui s’est exilé à Rouen. Le sport a toujours fait partie de ma vie. Je suis né avec des chaussures de running aux pieds. Je dévore des marathons au petit déjeuner. La première chose que je me dis en me réveillant : « Je suis rapide ».
             </div>
             <div class="col-4 citation_apdn">
-                C’est plus facile de descendre une colline que de la monter, mais la vue est beaucoup mieux au sommet. 
+                "C’est plus facile de descendre une colline que de la monter, mais la vue est beaucoup mieux au sommet." 
             </div>
         </div>
     </div>

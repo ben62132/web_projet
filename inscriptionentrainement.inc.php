@@ -27,8 +27,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 mysqli_stmt_bind_param($stmt, "ii", $userId, $entrainementId);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
-$message = "Vous êtes inscrit à cet entraînement.";
-header("Location: index.php?message=" . urlencode($message));
+header("Location: index.php?error=inscriptionentrainement");
 exit();
 
 ?>
