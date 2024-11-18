@@ -31,10 +31,23 @@ include('fonction.inc.php');
         echo "<p class='alert alert-success'>Vous vous êtes connecté avec succès.</p>";
     }
     ?>
+<?php if (isset($_GET["error"]) && $_GET["error"] == "inscription") {
+        echo "<p class='alert alert-success'>Vous êtes inscrit.</p>";
+    }
+    ?>
 <?php if (isset($_GET["error"]) && $_GET["error"] == "unaccessible") {
         echo "<p class='alert alert-success'>Page inaccessible. Vous devez être membre pour accéder à cette page.</p>";
     }
     ?>
+<?php if (isset($_GET["error"]) && $_GET["error"] == "inscriptionentrainement") {
+        echo "<p class='alert alert-success'>Vous êtes inscrit à un entraînement.</p>";
+    }
+    ?>
+<?php if (isset($_GET["error"]) && $_GET["error"] == "desinscriptionentrainement") {
+        echo "<p class='alert alert-success'>Vous êtes désinscrit d'un entraînement.</p>";
+    }
+    ?>
+
 
     <?php
        if (isset($_SESSION["prenomUtilisateur"])) {
@@ -58,10 +71,10 @@ include('fonction.inc.php');
                     <h1><?= htmlspecialchars($entrainement['entrainement_titre']) ?></h1>
                     <?php if (isset($_SESSION["idUtilisateur"])): ?>
                         <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionComplete']) ?></p>
-                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
-                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_date']) ?></p>
-                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
-                        <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
+                        <p class="texte-rose">Niveau : <?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
+                        <p class="texte-rose">Date : <?= date("d/m/Y", strtotime($entrainement['entrainement_date'])) ?></p>
+                        <p class="texte-rose">Participants max : <?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
+                        <p class="texte-rose">Lieu de départ : <?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
                         
                         <?php if ($_SESSION["membre"] == 1): ?>
                             <form method="post" action="annulerentrainement.inc.php">
@@ -102,10 +115,10 @@ include('fonction.inc.php');
                 <h1><?= htmlspecialchars($entrainement['entrainement_titre']) ?></h1>
                 <?php if (isset($_SESSION["idUtilisateur"])): ?>
                     <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_descriptionComplete']) ?></p>
-                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
-                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_date']) ?></p>
-                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
-                    <p class="texte-rose"><?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
+                    <p class="texte-rose">Niveau : <?= htmlspecialchars($entrainement['entrainement_categorie']) ?></p>
+                    <p class="texte-rose">Date : <?= date("d/m/Y", strtotime($entrainement['entrainement_date'])) ?></p>
+                    <p class="texte-rose">Participants max : <?= htmlspecialchars($entrainement['entrainement_nbMax']) ?></p>
+                    <p class="texte-rose">Lieu de départ : <?= htmlspecialchars($entrainement['entrainement_lieuDepart']) ?></p>
 
                     <?php if ($_SESSION["membre"] == 1): ?>
                         <form method="post" action="annulerentrainement.inc.php">

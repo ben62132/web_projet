@@ -28,7 +28,6 @@ mysqli_stmt_bind_param($stmt, "ii", $userId, $entrainementId);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 
-$message = "Vous vous êtes désinscrit de cet entraînement.";
-header("Location: index.php?message=" . urlencode($message));
+header("Location: index.php?error=desinscriptionentrainement");
 exit();
 ?>
