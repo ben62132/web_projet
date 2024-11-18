@@ -210,3 +210,12 @@ apdn:hover {
     background-color: #777777;
     font-size: 35px;
 }
+
+.btn_enregistrer{
+    background-color: #04d3f7;
+    font-size: 50px;
+}
+
+.btn_enregistrer:hover{
+    background-color: #ffffff;
+}

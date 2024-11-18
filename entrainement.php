@@ -39,7 +39,7 @@ session_start();
             <input type="text" class="form-control " id="lieu_depart" name="lieu_depart" placeholder="Le lieu de départ de l'entrainement..." required>
             <label for="photo" class="form-label">Photo</label>
             <input type="file" class="form-control " id="photo" name="photo" placeholder="La photo de l'entrainement ..." >
-            <button type="submit" name="submit_entrainement">Enregistrer</button></div>   
+            <button class="btn_enregistrer" type="submit" name="submit_entrainement">Enregistrer</button></div>   
         </form>
         <?php
         if (isset($_GET["error"])) {
