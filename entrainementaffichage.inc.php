@@ -6,7 +6,7 @@ date_default_timezone_set('Europe/Paris');
 $dateActuelle = date('Y-m-d H:i:s');
 
 // Modifier la requête SQL pour ne récupérer que les entraînements futurs
-$sql = "SELECT * FROM entrainement WHERE entrainement_date > '$dateActuelle' ORDER BY entrainement_date ASC";
+$sql = "SELECT * FROM entrainement WHERE entrainement_date > '$dateActuelle' AND entrainement_annulation = 0 ORDER BY entrainement_date ASC";
 $result = mysqli_query($conn, $sql); // Exécuter la requête
 
 if (!$result) {
